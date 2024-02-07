@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    h1 {
+        font-size: 6rem;
+        /* theme function */
+        color: theme(colors.warnaku);
+    }
+}
+
+@layer components {
+    .btn-blue {
+        @apply bg-blue-500 hover:bg-paragraph text-white font-bold py-2 px-4 rounded;
+    }
+}
+
+@layer utilities {
+    .paragraph {
+        color: white;
+    }
+
+    .bg-paragraph {
+        background-color: green;
+    }
+
+    .my-margin {
+        margin: 20px;
+    }
+}
+
+/* screen function */
+@media screen(sm){
+    body{
+        background-color: lightgreen;
+    }
+}
+

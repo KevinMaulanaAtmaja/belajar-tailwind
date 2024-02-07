@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- class="scroll-smooth" -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Tailwind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    container: {
+                        center: true,
+                    },
+                    spacing: {
+                        13: "103px",
+                    },
+                    fontFamily: {
+                        gaegu: ["Gaegu"],
+                    },
+                    colors: {
+                        test: "#bada55",
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                        'weagle': 'weagle 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        weagle: {
+                            '0%, 100%': {
+                                transform: 'rotate(-3deg)'
+                            },
+                            '50%': {
+                                transform: 'rotate(3deg)',
+                            }
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        /* * {
+            border: red 1px solid;
+        } */
+        #toggle:checked ~ label div.toggle-circle {
+            @apply translate-x-3;
+        }
+    </style>
+</head>
+
+<body class="dark:bg-slate-800 dark:text-slate-200">
+
+    <h1>Mari Belajar TailwindCSS</h1>
+    <!-- spacing (Yang hanya punya nilai minus itu cuma margin, padding tdk punya)  -->
+    <section class="mb-10">
+        <h2>Spacing</h2>
+        <div class="m-4">Margin All</div>
+        <div class="-ml-4">Margin Minus</div>
+        <div class="ml-auto">Margin Auto</div>
+        <div class="m-13">Custom Spacing</div>
+
+        <div class="p-8">Padding All</div>
+        <div class="px-5">Padding Horizontal</div>
+    </section>
+
+    <!-- sizing 1 -->
+    <section class="mb-10">
+        <h2>Sizing</h2>
+        <div class="w-1/2 h-24">Kotak 1</div>
+    </section>
+
+    <!-- typography -->
+    <section class="mb-96 font-gaegu max-w-sm mx-auto">
+        <h2 class="mb-2 text-3xl font-bold">
+            Belajar Mengenai Typography pada TailwindCSS
+        </h2>
+        <div class="mb-4 text-sm">By Amelia, 11 Januari 2024</div>
+        <blockquote class="mb-4 font-thin text-xl italic">
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam
+            beatae magnam inventore? Quibusdam ad quam possimus alias illum dolorem
+            nobis.""
+        </blockquote>
+        <div class="mb-4 underline text-center">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, ipsum
+            nulla non perferendis consectetur repudiandae.
+        </div>
+    </section>
+
+    <!-- color -->
+    <section class="mb-12">
+        <h2>Color</h2>
+        <div class="text-lime-500">Warna Text</div>
+        <div class="bg-cyan-300">Warna Bg</div>
+        <div class="bg-test">Warna Custom</div>
+        <div class="bg-gradient-to-r from-indigo-300 via-red-400 to-yellow-300">
+            Warna Gradient
+        </div>
+        <div class="bg-gradient-to-r from-blue-600 to-teal-300 bg-clip-text text-transparent text-4xl font-bold">
+            Warna Text Clip
+        </div>
+    </section>
+
+    <!-- arbitrary value (nilai sembarang)  -->
+    <!-- sizing 2 -->
+    <section class="mx-auto max-w-xl h-96 bg-[#bada55] mt-[1px] overflow-y-scroll bg-fixed" style="
+        background-image: url('https://source.unsplash.com/400x400?computer');">
+        <p class="p-5 text-3xl">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus sit
+            aliquid ipsum animi enim veniam delectus eos, iure expedita ab et sequi
+            dignissimos illo laboriosam nesciunt suscipit exercitationem, unde
+            provident! Necessitatibus architecto vitae itaque! Praesentium
+            architecto repellendus cum voluptatem earum? Distinctio eius repudiandae
+            nisi accusantium libero totam exercitationem, aut ut!
+        </p>
+    </section>
+
+    <!-- backgrounds -->
+    <section class="my-20 max-w-xl mx-auto h-96 bg-red-700 bg-contain bg-no-repeat bg-center"
+        style="background-image: url('img/gambar1.jpg')">
+    </section>
+
+    <!-- borders -->
+    <section class="my-20 mx-auto max-w-xl h-96 flex justify-center items-center">
+        <!-- border -->
+        <div class="bg-purple-600 h-24 w-24 m-2 rounded-2xl border-black border-4 border-dotted"></div>
+        <!-- outline -->
+        <div class="bg-purple-600 h-8 w-16 m-2 outline-dashed outline-2 outline-offset-2"></div>
+        <!-- ring -->
+        <div class="bg-purple-600 h-24 w-24 m-2 ring-8 ring-blue-700"></div>
+        <!-- divide -->
+        <div class="grid grid-cols-3 divide-x-2 divide-y-2 divide-black divide-dashed">
+            <div>01</div>
+            <div>02</div>
+            <div>03</div>
+        </div>
+    </section>
+
+
+    <!-- effects -->
+    <section class="my-20 max-w-xl mx-auto h-96 bg-red-500 bg-contain bg-no-repeat bg-center
+                shadow-lg shadow-teal-700 opacity-60 bg-blend-multiply" style="background-image: url('img/gambar1.jpg')">
+        <div class="w-full h-full bg-blue-500 mix-blend-color"></div>
+    </section>
+
+    <!-- filters -->
+    <section class="my-20 max-w-xl mx-auto h-96 bg-slate-500 bg-contain bg-no-repeat bg-center
+                blur-sm brightness-150" style="background-image: url('img/gambar1.jpg')">
+    </section>
+
+    <!-- backdrop -->
+    <section class="my-20 max-w-xl mx-auto h-96 bg-slate-500 bg-contain bg-no-repeat bg-center flex"
+        style="background-image: url('img/gambar1.jpg')">
+        <div class="w-[200px] h-[200px] bg-white/40 m-auto backdrop-sepia"></div>
+    </section>
+
+    <!-- pseudo class -->
+    <section class="my-20 max-w-xl mx-auto h-96 flex justify-center items-center">
+        <button class="my-5 bg-sky-500 px-5 py-2 rounded-full text-white font-semibold
+            hover:bg-sky-700 active:bg-sky-800 focus:ring-4">Tombol</button>
+    </section>
+
+    <!-- grouping(utk parent - child) -->
+    <section class="max-w-xs border border-slate-300 rounded-xl mx-auto p-5 shadow-md hover:bg-sky-500 group">
+        <h5 class="text-slate-600 font-bold text-lg mb-3 group-hover:text-white">My Card</h5>
+        <p class="text-slate-600
+        selection:bg-green-300 first-line:uppercase
+        first-letter:text-7xl first-letter:text-slate-900
+        first-letter:mr-3 first-letter:float-left">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Voluptatem, dolores?</p>
+    </section>
+
+    <!-- pseudo element -->
+    <section class="my-20 max-w-xs border border-slate-300 rounded-xl mx-auto p-5 shadow-md">
+        <form action="">
+            <label for="email">
+                <span class="block font-semibold mb-1
+                    after:content-['*'] after:text-red-500 ">Email</span>
+                <input type="email" id="email" placeholder="Masukkan Email..." class="block px-3 py-2 border w-full text-sm rounded
+                    placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500
+                    invalid:text-red-500 invalid:focus:ring-red-500 invalid:focus:border-red-500
+                    peer">
+                <!-- peer (utk sibling/saudara) -->
+                <p class="text-sm m-1 text-red-500
+                        invisible peer-invalid:visible">Email tidak valid!</p>
+            </label>
+        </form>
+    </section>
+
+    <!-- darkmode -->
+    <section class="my-10 max-w-xs border border-slate-300 rounded-xl mx-auto p-5 shadow-md dark:bg-lime-900">
+        <p class="dark:text-yellow-300">Dark Mode</p>
+    </section>
+
+    <!-- toggle dark mode -->
+    <section class="my-10 flex justify-center items-center">
+        <span class="text-sm text-slate-500 mr-2">Light</span>
+        <input type="checkbox" id="toggle" class="hidden">
+        <label for="toggle">
+            <div class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer">
+                <div class="toggle-circle w-4 h-4 bg-white rounded-full"></div>
+            </div>
+        </label>
+        <span class="text-sm text-slate-500 ml-2">Dark</span>
+    </section>
+
+
+
+    <!-- transform -->
+    <!-- scale -->
+    <section class="flex justify-center items-center">
+        <div class="my-20 w-20 h-20 bg-zinc-600 mx-auto rounded-lg shadow-lg
+                hover:scale-150">
+        </div>
+        <!-- rotate -->
+        <div class="my-20 w-20 h-20 bg-teal-600 mx-auto rounded-lg shadow-lg
+                hover:rotate-45">
+        </div>
+        <!-- translate -->
+        <div class="my-20 w-20 h-20 bg-emerald-600 mx-auto rounded-lg shadow-lg
+                hover:translate-y-10">
+        </div>
+        <!-- skew -->
+        <div class="my-20 w-20 h-20 bg-sky-600 mx-auto rounded-lg shadow-lg
+                hover:skew-x-6 origin-bottom">
+        </div>
+        <!-- transform origin - transition -->
+        <div class="w-20 h-20 mx-auto my-20 group">
+            <div class="w-full h-full bg-amber-600 rounded-lg shadow-lg group-hover:rotate-180
+                origin-top-left transition"></div>
+        </div>
+    </section>
+
+
+
+    <!-- animation -->
+    <section class="flex justify-center items-center my-20 ">
+        <!-- animation spin -->
+        <div class="my-40 w-20 h-20 bg-sky-600 rounded-lg shadow-lg animate-spin mb-4 mx-auto"></div>
+
+        <!-- animation ping -->
+        <div class="my-40 w-20 h-20 bg-teal-600 rounded-full shadow-lg animate-ping mb-4 mx-auto"></div>
+
+        <!-- animation pulse -->
+        <div class="my-40 w-20 h-20 bg-red-600 rounded-full shadow-lg animate-pulse mb-4 mx-auto"></div>
+
+        <!-- animation bounce -->
+        <div class="my-40 w-20 h-20 bg-green-500 rounded-full shadow-lg animate-bounce mb-4 mx-auto"></div>
+        <!-- </div> -->
+
+        <!-- custom animate -->
+        <div class="my-40 w-20 h-20 bg-purple-600 rounded-lg shadow-lg animate-spin-slow mb-4 mx-auto"></div>
+
+        <div class="my-40 w-20 h-20 bg-emerald-600 rounded-lg shadow-lg animate-weagle mb-4 mx-auto"></div>
+    </section>
+
+    <!-- container -->
+    <section class="container px-8 mx-auto my-10">
+        <div class="border shadow-lg  px-5">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic voluptas corrupti animi saepe non eaque
+                eum sint consectetur quod officia quos, qui facilis architecto veritatis dignissimos ullam excepturi
+                esse ipsa tempore optio asperiores alias earum, debitis cupiditate? Mollitia minima sint illum eius.
+                Aperiam numquam laborum ad accusantium placeat eveniet ut.</p>
+        </div>
+    </section>
+
+    <!-- float -->
+    <section class="container px-8 mx-auto my-10">
+        <div class="border shadow-lg  px-5">
+            <img src="img/gambar1.jpg" width="50" class="float-left">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum dolor beatae quisquam cupiditate iure
+                sit voluptatem. Quia modi dolores laudantium molestiae non ducimus, harum ullam blanditiis,
+                explicabo, debitis reiciendis voluptates consequatur ipsam eveniet. Expedita, quos commodi pariatur
+                facere esse laborum libero possimus sunt voluptas, aut cum mollitia ab doloremque nisi deleniti
+                animi repellendus porro non inventore? Sunt sed ducimus libero harum, cumque quibusdam neque sit est
+                iste, quis nulla rem nisi quos consequuntur impedit ipsam dolorem nesciunt aut architecto illo
+                veniam eaque. Quidem ab, culpa incidunt, hic quasi adipisci temporibus unde molestias doloribus cum
+                ea minus. Harum, esse facere! Dolores?</p>
+        </div>
+    </section>
+
+    <!-- tombol kebawah -->
+    <section class="size-10 bg-sky-400 rounded-full flex fixed bottom-5 right-5 cursor-pointer z-10">
+        <a href="#bawah" class="text-xl m-auto">👇</a>
+    </section>
+
+
+    <!-- position -->
+    <section class="bg-gray-200 h-screen flex justify-center items-center relative">
+        <div class="static bg-blue-300 p-4 m-4">
+            <!-- Position: Static -->
+            <p>Static</p>
+        </div>
+
+        <div class="relative bg-blue-300 p-4 m-4">
+            <!-- Position: Relative -->
+            <p>Relative</p>
+        </div>
+
+        <div class="absolute top-0 left-0 bg-green-300 p-4 m-4">
+            <!-- Position: Absolute -->
+            <p>Absolute</p>
+        </div>
+
+        <div class="fixed top-0 right-0 bg-yellow-300 p-4 m-4">
+            <!-- Position: Fixed -->
+            <p>Fixed</p>
+        </div>
+
+        <div class="sticky top-10 bg-red-300 p-4 m-4">
+            <!-- Position: Sticky -->
+            <p>Sticky</p>
+        </div>
+    </section>
+
+    <!-- columns -->
+    <section class="container mx-auto border rounded-lg shadow-lg p-10 my-20 columns-3">
+        <img src="img/gambar1.jpg" alt="Image" class="mb-4">
+        <img src="img/gambar1.jpg" alt="Image" class="mb-4">
+        <img src="img/gambar1.jpg" alt="Image" class="mb-4">
+        <img src="img/gambar1.jpg" alt="Image" class="mb-4">
+        <img src="img/gambar1.jpg" alt="Image" class="mb-4">
+        <img src="img/gambar1.jpg" alt="Image" class="mb-4">
+    </section>
+
+
+    <!-- responsive -->
+    <section class="my-4  border-4 font-sans max-w-md mx-auto sm:bg-red-200 md:bg-green-300 lg:bg-blue-300 xl:bg-yellow-300
+                sm:max-w-xl lg:flex lg:max-w-full lg:px-0">
+        <div class="lg:p-12 lg:flex-1">
+            <div class="container px-6 md:max-w-5xl ">
+                <h3 class="text-4xl font-bold text-slate-800
+                        sm:text-5xl">Tailwind</h3>
+                <img class="mt-4 rounded-xl shadow-xl
+                            sm:my-20 sm:mt-6 sm:h-64 sm:w-full sm:object-cover lg:hidden" src="img/gambar1.jpg" alt="Gambar">
+                <h2 class="mt-5 text-2xl font-semibold text-slate-800">Belajar Tailwind</h2>
+                <p class="mt-2 text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nesciunt
+                    dolor rerum exercitationem accusantium, necessitatibus voluptate fugit atque nostrum, consequuntur
+                    id accusamus cupiditate illum maxime commodi non. Pariatur, doloribus rerum.</p>
+                <div class="my-4">
+                    <a href="#"
+                        class="inline-block px-5 py-3 bg-red-500 text-white uppercase rounded-lg shadow-lg text-sm tracking-wider font-semibold ">Follow
+                        Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="hidden lg:flex lg:w-1/2 ">
+            <img class="mt-4 rounded-l-full shadow-xl object-cover" src="img/gambar1.jpg" alt="Gambar">
+        </div>
+    </section>
+
+
+    <!-- flex -->
+    <h2 class="mt-24 mb-10 text-center font-sans text-3xl text-slate-600">My Gallery</h2>
+    <section class="container px-6 font-sans  sm:flex sm:flex-wrap sm:justify-evenly sm:gap-7">
+        <div class="rounded-md shadow-lg bg-white overflow-hidden sm:mb-0 sm:w-64 
+            md:w-80 lg:w-72 ">
+            <img src="img/gambar1.jpg" alt="Gambar" class="w-full">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2 text-slate-600">Image Title</div>
+                <p class="text-sm text-slate-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
+                    dolorum?</p>
+            </div>
+        </div>
+        <div class="rounded-md shadow-lg bg-white overflow-hidden sm:mb-0 sm:w-64 
+            md:w-80 lg:w-72 ">
+            <img src="img/gambar1.jpg" alt="Gambar" class="w-full">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2 text-slate-600">Image Title</div>
+                <p class="text-sm text-slate-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
+                    dolorum?</p>
+            </div>
+        </div>
+        <div class="rounded-md shadow-lg bg-white overflow-hidden sm:mb-0 sm:w-64 
+            md:w-80 lg:w-72 ">
+            <img src="img/gambar1.jpg" alt="Gambar" class="w-full">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2 text-slate-600">Image Title</div>
+                <p class="text-sm text-slate-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
+                    dolorum?</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- grid -->
+    <section class="mt-4 p-2 font-mono grid grid-cols-2 gap-2 md:grid-cols-4 md:p-4">
+        <h2 class="text-xl font-semibold text-slate-700
+                md:col-start-4 md:row-start-2 md:flex"><span class="self-center">Welcome to Melia</span></h2>
+        <div class="text-lg font-bold text-slate-600
+                md:col-start-2 md:row-start-2 md:flex"><span class="self-end">@meliaamel</span></div>
+
+        <div
+            class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/1.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+        </div>
+
+        <div class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3]
+                md:row-span-3 overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/2.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+        </div>
+        <div
+            class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/3.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+
+        </div>
+        <div
+            class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/4.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+
+        </div>
+        <div
+            class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/5.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+
+        </div>
+        <div class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3]
+            md:col-start-2 overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/6.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+        </div>
+        <div class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3]
+                md:col-start-4 overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/7.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+        </div>
+        <div
+            class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/8.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+
+        </div>
+        <div class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3]
+                md:col-start-3 overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/9.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+        </div>
+        <div class="bg-blue-500 aspect-[4/3] rounded-lg md:aspect-[3/4] xl:aspect-[4/3]
+                md:col-start-3 overflow-hidden group relative hover:scale-95 transition-all duration-500">
+            <div
+                class="w-full h-full bg-[url('img/grid/10.jpg')] bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div id="bawah" class="mb-96"></div>
+    <script>
+        const checkBox = document.querySelector('#toggle');
+        const html = document.querySelector('html');
+
+        checkBox.addEventListener('click', function () {
+            checkBox.checked ? html.classList.add('dark') : html.classList.remove('dark');
+        })
+    </script>
+</body>
+
+</html>
